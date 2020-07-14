@@ -37,11 +37,13 @@ Promise.all([
 
 
 video.addEventListener('play',async () =>{
+    
     console.log("1");
 
     // ******************************
     //AQUI SE ALMACENA LOS DATOS DE LA IMG 
     const labeledFaceDescriptors = await loadLabeledImages();
+    console.log("labelde");
    //DEFINIMOS LA CANTIDAD DE PARTICIONES DEL ROSTRO
    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
    alert('Análisis Realizado,iniciando escaneo');
@@ -55,6 +57,9 @@ video.addEventListener('play',async () =>{
     faceapi.matchDimensions(canvas,displaySize);
    
    console.log("2");
+
+
+
     setInterval( async()=>{
         console.log("3");
         const detections = await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptors();;
