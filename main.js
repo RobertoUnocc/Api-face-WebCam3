@@ -62,7 +62,7 @@ video.addEventListener('play',async () =>{
 
     setInterval( async()=>{
         console.log("3");
-        const detections = await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions()).withFaceDescriptors();;
+        const detections = await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions()).withFaceDescriptors();
         // console.log(detections);
         
         // ahora redireccionamos el tamaño del Canvas
