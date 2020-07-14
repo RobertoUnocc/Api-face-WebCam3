@@ -62,7 +62,7 @@ video.addEventListener('play',async () =>{
 
     setInterval( async()=>{
         console.log("3");
-        const detections = await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions()).withFaceDescriptors();
+        const detections = await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptors();;
         // console.log(detections);
         
         // ahora redireccionamos el tamaño del Canvas
@@ -106,7 +106,7 @@ function loadLabeledImages() {
             const descriptions = []
             for (let i = 1; i <= 2; i++) {
                 const img = await faceapi.fetchImage(`https://robertounocc.github.io/Api-face-WebCam/perfiles/${label}/${i}.jpg`);
-                const detections = await faceapi.detectSingleFace(img).withFaceDescriptor();
+                const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor();
                 descriptions.push(detections.descriptor);
             }
 
