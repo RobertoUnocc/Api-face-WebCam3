@@ -37,6 +37,7 @@ Promise.all([
 
 
 video.addEventListener('play',async () =>{
+    console.log("1");
 
     // ******************************
     //AQUI SE ALMACENA LOS DATOS DE LA IMG 
@@ -53,14 +54,16 @@ video.addEventListener('play',async () =>{
     // El video tendria el canvas poe encima con el mismo tamaño
     faceapi.matchDimensions(canvas,displaySize);
    
+   console.log("2");
     setInterval( async()=>{
+        console.log("3");
         const detections = await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptors();;
         // console.log(detections);
         
         // ahora redireccionamos el tamaño del Canvas
         const resizedDetections=await faceapi.resizeResults(detections,displaySize);
 
-        
+        console.log("4");
          
         // -----------------------------------------------------
         // limpiar
