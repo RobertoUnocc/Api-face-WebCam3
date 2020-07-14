@@ -43,7 +43,7 @@ video.addEventListener('play',async () =>{
     // ******************************
     //AQUI SE ALMACENA LOS DATOS DE LA IMG 
     const labeledFaceDescriptors = await loadLabeledImages();
-    console.log("labelde");
+    console.log("lala");
    //DEFINIMOS LA CANTIDAD DE PARTICIONES DEL ROSTRO
    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
    alert('Análisis Realizado,iniciando escaneo');
@@ -100,7 +100,7 @@ video.addEventListener('play',async () =>{
 // ***************************
 function loadLabeledImages() {
     // const labels = ['Roberto Carlos','Luis Fernando','Elvis Pernia']
-    const labels = ['Roberto Carlos']
+    const labels = ['Roberto Carlos','Luis Fernando']
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
