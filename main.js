@@ -38,15 +38,13 @@ Promise.all([
 
 video.addEventListener('play',async () =>{
     
-    console.log("1");
-
+    console.log("Empezamos");
     // ******************************
     //AQUI SE ALMACENA LOS DATOS DE LA IMG 
     const labeledFaceDescriptors = await loadLabeledImages();
-    console.log("lala");
    //DEFINIMOS LA CANTIDAD DE PARTICIONES DEL ROSTRO
-   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
-   alert('Análisis Realizado,iniciando escaneo');
+   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.8);
+   console.log("escaneando");
     // *****************************
 
     const canvas=faceapi.createCanvasFromMedia(video);
@@ -100,7 +98,7 @@ video.addEventListener('play',async () =>{
 // ***************************
 function loadLabeledImages() {
     // const labels = ['Roberto Carlos','Luis Fernando','Elvis Pernia']
-    const labels = ['Roberto Carlos','Luis Fernando']
+    const labels = ['Roberto Carlos']
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
